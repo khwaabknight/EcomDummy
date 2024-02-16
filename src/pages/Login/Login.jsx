@@ -22,13 +22,14 @@ const Login = () => {
 
     const onsubmit = (e) => {
         e.preventDefault();
-        axios.post('https://dummyjson.com/auth/login',{...formData,expiresInMins:120}).then((res)=>{
+        const data = {...formData,expiresInMins:2*24*60};
+        console.log(data)
+        axios.post('https://dummyjson.com/auth/login',data).then((res)=>{
             localStorage.setItem('token',res.data.token);
-            navigate('/products');            
+            navigate('/products');
         }).catch((error)=>{
             console.log(error)
         })
-
     }
 
   return (
