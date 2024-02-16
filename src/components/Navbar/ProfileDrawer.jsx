@@ -3,10 +3,18 @@ import { IoClose } from "react-icons/io5";
 import Avatar from '../common/Avatar';
 import { FaFemale, FaMale } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
+import { useNavigate } from 'react-router-dom';
 
 const ProfileDrawer = ({closeHandler,user}) => {
+    const navigate = useNavigate();
+
+    const logoutHandler = () => {
+        localStorage.removeItem('token');
+        navigate('/');        
+    }
+
   return (
-    <div className='pointer-events-auto w-screen max-w-md'>
+    <div className='pointer-events-auto w-screen max-w-md overflow-y-hidden'>
         <div className='flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl'>
             <div className="px-4 sm:px-6">
                 <div className="flex items-start justify-end">
@@ -64,7 +72,7 @@ const ProfileDrawer = ({closeHandler,user}) => {
 
                     <div className="flex gap-10 my-8">
                     <div 
-                        onClick={() => {}}
+                        onClick={logoutHandler}
                         className="flex flex-col gap-3 items-center cursor-pointer hover:opacity-75"
                     >
                         <div className="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center">

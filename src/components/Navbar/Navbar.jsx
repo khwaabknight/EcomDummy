@@ -22,11 +22,6 @@ const links = [
     name: 'DummyLink1',
     path: '/dummylink'
   },
-  {
-    id:4,
-    name: 'DummyLink2',
-    path: '/dummylink'
-  }
 ]
 
 const Navbar = ({children}) => {
@@ -38,7 +33,7 @@ const Navbar = ({children}) => {
   const closeHandler = () => setShowModal(false)
 
   useEffect(() => {
-      axios.get('https://dummyjson.com/auth/me',{
+    axios.get('https://dummyjson.com/auth/me',{
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
       },
@@ -56,11 +51,11 @@ const Navbar = ({children}) => {
   },[navigate])
 
   return (
-    <nav className='flex flex-col items-center min-h-dvh h-full'>
-      <div className='w-full flex justify-center bg-gray-900'>
-        <div className='flex justify-between lg:w-10/12
+    <div className={clsx('flex flex-col items-center h-full',window.location.pathname === '/' && 'hidden')}>
+      <nav className={clsx('w-full justify-center bg-gray-900 h-16 hidden md:flex',)}>
+        <div className='flex justify-between w-10/12 gap-3
          p-1 opacity-90'>
-          <div className='flex items-center gap-3 pl-8'>
+          <div className='flex items-center gap-3'>
             <img src="/online-shopping.png" alt='logo' width={30}/>
             <p className='text-xl text-gray-200 select-none'>DummyEcom</p>
           </div>
@@ -73,18 +68,17 @@ const Navbar = ({children}) => {
               ))
             }
           </ul>
-          <div className='pr-8 flex justify-center items-center '>
+          <div className='flex justify-center items-center '>
             <button onClick={() => setShowModal(true)}>
               <Avatar imgsrc={user?.image}/>
             </button>
           </div>
         </div>
-      </div>
+      </nav>
       <Overlay showModal={showModal} closeHandler={closeHandler}>
           <ProfileDrawer closeHandler={closeHandler} user={user}/>
       </Overlay>
-      {children}
-    </nav>
+    </div>
   )
 }
 
