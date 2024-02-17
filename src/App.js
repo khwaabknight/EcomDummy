@@ -25,7 +25,7 @@ function App() {
         {/* Single Product Path */}
         <Route path="/products/:productid" element={<ProtectedRoute><SingleProduct/></ProtectedRoute>} />
         {/* Cart Path */}
-        <Route path="/cart" element={} />
+        <Route path="/cart" element={<ProtectedRoute><Cart/></ProtectedRoute>} />
 
         {/* Error */}
         <Route path={"/*" || '/products/*' || "/cart/*" } element={<ProtectedRoute><Error/></ProtectedRoute>} />
