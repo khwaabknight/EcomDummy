@@ -23,12 +23,12 @@ function App() {
             <ProtectedRoute>  <Products />  </ProtectedRoute>
         } />
         {/* Single Product Path */}
-        <Route path="/products/:productid" element={<SingleProduct />} />
+        <Route path="/products/:productid" element={<ProtectedRoute><SingleProduct/></ProtectedRoute>} />
         {/* Cart Path */}
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={} />
 
         {/* Error */}
-        <Route element={<Error />} />
+        <Route path={"/*" || '/products/*' || "/cart/*" } element={<ProtectedRoute><Error/></ProtectedRoute>} />
         
       </Routes>
     </div>
