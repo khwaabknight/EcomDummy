@@ -7,6 +7,7 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 import Navbar from './components/Navbar/Navbar';
 import SingleProduct from './pages/SingleProduct/SingleProduct';
 import Cart from './pages/Cart/Cart';
+import Error from './pages/Error404/Error';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         <Route path="/products/:productid" element={<SingleProduct />} />
         {/* Cart Path */}
         <Route path="/cart" element={<Cart />} />
+
+        {/* Error */}
+        <Route path="*" element={<Error />} />
         
       </Routes>
     </div>
