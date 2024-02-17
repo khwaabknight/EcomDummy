@@ -11,8 +11,8 @@ const FilterAndSearch = ({productsList,setProductsList,clearFilters}) => {
     const searchHandler = (e) => {
         e.preventDefault();
         axios.get(`https://dummyjson.com/products/search?q=${searchString}`).then((res) => {
-            setProductsList(res.data);
-            console.log(`reslut for ${searchString}`,res.data);
+            setProductsList(res.data.products);
+            console.log(`result for ${searchString}`,res.data.products);
         }).catch((error) => {
             console.log("error while searching:",error)
         });
