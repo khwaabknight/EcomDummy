@@ -8,7 +8,7 @@ const Overlay = ({children,showModal,closeHandler}) => {
     }
 
   return (
-    <div onClick={outsideClickHandler} id='modalbg' className='fixed inset-0 bg-gray-900 bg-opacity-20 backdrop-blur-sm flex justify-end'>
+    <div onClick={outsideClickHandler} id='modalbg' className='fixed inset-0 bg-gray-900 bg-opacity-20 backdrop-blur-sm flex justify-end z-50'>
         {children}
     </div>
   )

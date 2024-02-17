@@ -3,6 +3,7 @@ import React from 'react'
 import { FaCartShopping } from 'react-icons/fa6';
 import { IoIosStar } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import Rating from '../common/Rating';
 
 const ListItem = ({product,addToCart}) => {
     const { id, title, thumbnail, price, description, rating } = product;
@@ -17,7 +18,7 @@ const ListItem = ({product,addToCart}) => {
             
             <div className="flex justify-between items-center ">
                 <h3 className='text-2xl text-gray-100 font-medium pt-2 select-none'>{title}</h3>
-                <p className={clsx('text-gray-50 px-3 py-1 flex justify-center items-center rounded gap-2 select-none',rating >= 3.5 ? "bg-green-500" : rating >= 2.5 ? "bg-orange-500" : "bg-red-600")}><p>{rating}</p><IoIosStar/></p>
+                <Rating rating={rating}/>
             </div>
             <p className='text-gray-100 font-medium select-none'>$ {price}</p>
             <p className='text-gray-100 select-none'>{description.slice(0, 60)}...</p>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaCartShopping } from "react-icons/fa6";
-import { IoIosStar } from "react-icons/io";
 import clsx from 'clsx';
+import Rating from '../common/Rating';
 
 const GridItem = ({product,addToCart}) => {
     const { id, title, thumbnail, price,category,rating } = product;
@@ -20,7 +20,7 @@ const GridItem = ({product,addToCart}) => {
             <div className="p-2 mx-4 flex flex-col gap-2">
               <div className="flex justify-between items-center ">
                 <h3 className='text-gray-100 font-semibold text-base select-none'>{title}</h3>
-                <p className={clsx('text-gray-50 px-3 py-1 flex justify-center items-center rounded gap-2 select-none',rating >= 3.5 ? "bg-green-500" : rating >= 2.5 ? "bg-orange-500" : "bg-red-600")}><p>{rating}</p><IoIosStar/></p>
+                <Rating rating={rating}/>
               </div>
               <div className='flex justify-between items-center'>
                 <p className="text-gray-50 select-none">$ {price}</p>

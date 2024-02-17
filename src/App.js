@@ -6,6 +6,7 @@ import OpenRoute from './components/common/OpenRoute';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import Navbar from './components/Navbar/Navbar';
 import SingleProduct from './pages/SingleProduct/SingleProduct';
+import Cart from './pages/Cart/Cart';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         {/* Single Product Path */}
         <Route path="/products/:productid" element={<SingleProduct />} />
         {/* Cart Path */}
-        {/* <Route path="/cart" element={<Cart />} /> */}
+        <Route path="/cart" element={<Cart />} />
         
       </Routes>
     </div>

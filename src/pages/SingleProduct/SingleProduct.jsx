@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import ProductImages from '../../components/SingleProduct/ProductImages';
+import ProductDesc from '../../components/SingleProduct/ProductDesc';
 
 const SingleProduct = () => {
     const [product, setProduct] = useState(null)
@@ -7,6 +9,7 @@ const SingleProduct = () => {
     useState(() => {
         axios.get(`https://dummyjson.com/products/${window.location.pathname.split('/')[2]}`).then((res) => {
             setProduct(res.data)
+            console.log(res.data)
         }).catch((error) => {
             console.log("error while fetching single product:",error)
         })
@@ -17,12 +20,20 @@ const SingleProduct = () => {
         return <div className='flex items-center justify-center h-screen text-gray-100 font-semibold text-3xl'>No Product</div>
     }
 
-  return (
-    <div className='text-white flex items-center justify-center h-screen'>
-        {/* Single Product Page */}
-        {product.title}
-    </div>
-  )
+    return (
+        <div className='flex items-center justify-center h-screen w-4/5 mx-auto '>
+            <div className='grid grid-cols-2 w-full'>
+                <div className='flex items-center justify-center'>
+                    <ProductImages images={product.images || [product.thumbnail]}/>
+                </div>
+                <div className='flex items-center justify-center mr-10'>
+                    <ProductDesc {...product}/>
+                </div>
+                
+            </div>
+            
+        </div>
+    )
 }
 
 export default SingleProduct
