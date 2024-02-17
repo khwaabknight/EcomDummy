@@ -4,8 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Overlay from './Overlay';
 import ProfileDrawer from './ProfileDrawer';
 import Avatar from '../common/Avatar';
-import clsx from 'clsx';
-import { RxHamburgerMenu,RxCross1 } from "react-icons/rx";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from 'react-icons/io5';
 
 const links = [
