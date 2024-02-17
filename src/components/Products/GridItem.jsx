@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaCartShopping } from "react-icons/fa6";
-import clsx from 'clsx';
 import Rating from '../common/Rating';
 
 const GridItem = ({product,addToCart,index}) => {
