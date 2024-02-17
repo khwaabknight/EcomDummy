@@ -20,7 +20,6 @@ const ProfileDrawer = ({closeHandler,user}) => {
                 <div className="flex items-start justify-end">
                     <div className="ml-3 flex h-7 items-center">
                         <button onClick={closeHandler} type="button" className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600 hover:scale-125 focus:ring-offset-2 transition-transform">
-                            <span className="sr-only">Close panel</span>
                             <IoClose size={24}/>                            
                         </button>
                     </div>

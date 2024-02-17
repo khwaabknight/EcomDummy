@@ -22,8 +22,8 @@ const SingleProduct = () => {
 
     return (
         <div className='flex items-center justify-center h-screen w-4/5 mx-auto '>
-            <div className='grid grid-cols-2 w-full'>
-                <div className='flex items-center justify-center'>
+            <div className='grid md:grid-cols-2 w-full'>
+                <div className='flex items-center justify-center border-b pb-5 md:border-none md:pb-0 border-gray-700'>
                     <ProductImages images={product.images || [product.thumbnail]}/>
                 </div>
                 <div className='flex items-center justify-center mr-10'>

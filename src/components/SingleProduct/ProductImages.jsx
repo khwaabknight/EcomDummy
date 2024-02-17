@@ -4,8 +4,8 @@ const ProductImages = ({images}) => {
     const [displayImg, setDisplayImg] = useState(0);
 
   return (
-    <div className='grid grid-cols-7 content-center'>
-        <div className='col-span-2 flex flex-col gap-2 justify-center '>
+    <div className='grid md:grid-cols-7 w-full justify-center'>
+        <div className='col-span-2 flex md:flex-col gap-2 md:justify-center md:order-1 md:items-center order-2 '>
             {
                 images.map((image,index) => (
                     <figure key={index} className='flex justify-center items-center '>
@@ -14,7 +14,7 @@ const ProductImages = ({images}) => {
                 ))
             }
         </div>
-        <div className='col-span-5 flex items-center p-14'>
+        <div className='col-span-5 flex items-center p-14 md:order-2 order-1'>
             <figure className='flex items-center justify-center'>
                 <img src={images[displayImg]} alt={displayImg} className=' max-w-full h-auto'/>
             </figure>
