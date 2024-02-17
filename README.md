@@ -8,8 +8,6 @@ Welcome to the React E-Commerce App! This application is designed to showcase a 
 2. [Usage](#usage)
 3. [Features](#features)
 4. [Demo Video](#demo-video)
-5. [Contributing](#contributing)
-6. [License](#license)
 
 ## Installation
 
