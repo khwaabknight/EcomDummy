@@ -12,7 +12,7 @@ const Products = () => {
   const addToCart = (productId) => {
     const cartItems = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
     let cartTotal = localStorage.getItem("total")
-    ? JSON.parse(localStorage.getItem("total")) 
+    ? JSON.parse(localStorage.getItem("total"))
     : 0;
 
     cartItems.push(productsList[productId]);
@@ -20,6 +20,8 @@ const Products = () => {
 
     localStorage.setItem('cart', JSON.stringify(cartItems));
     localStorage.setItem('total', JSON.stringify(cartTotal));
+
+    console.log(cartItems)
   }
 
   useEffect(() => {

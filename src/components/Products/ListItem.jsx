@@ -4,15 +4,15 @@ import { FaTrash } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Rating from '../common/Rating';
 
-const ListItem = ({product,addToCart,removeFromCart}) => {
+const ListItem = ({product,addToCart,removeFromCart,index}) => {
     const { id, title, thumbnail, price, description, rating } = product;
 
     const buttonHandler = () => {
         if(addToCart){
-            addToCart(id);
+            addToCart(index);
         }
         if(removeFromCart){
-            removeFromCart(id);
+            removeFromCart(index);
         }
     }
 

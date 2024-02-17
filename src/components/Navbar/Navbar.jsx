@@ -100,7 +100,7 @@ const Navbar = ({children}) => {
             <ul className={clsx('flex-col justify-center items-center gap-3')}>
                 {
                   links.map((link) => (
-                    <li key={link.id} className={clsx(`text-xl text-gray-200 select-none px-5 py-3 hover:bg-gray-700`, window.location.pathname === link.path && "text-gray-300 bg-gray-600")}>
+                    <li key={link.id} className={clsx(`text-xl text-gray-200 select-none px-5 py-3 hover:bg-gray-700`, window.location.pathname === link.path && "text-gray-300 bg-gray-600")} >
                       <NavLink to={link.path}>{link.name}</NavLink>
                     </li>
                   ))

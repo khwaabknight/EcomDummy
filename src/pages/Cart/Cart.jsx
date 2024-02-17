@@ -3,24 +3,21 @@ import ListItem from '../../components/Products/ListItem';
 import CartBox from '../../components/Cart/CartBox';
 
 const Cart = () => {
-    const [cart, setCart] = useState([]);
-    const [total, setTotal] = useState(0);
+    const [cart, setCart] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []);
+    const [total, setTotal] = useState(localStorage.getItem('total') ? JSON.parse(localStorage.getItem('total')) : 0);
 
-    useEffect(() => {
-        const storedCart = localStorage.getItem('cart');
-        const storedTotal = localStorage.getItem('total');
-        if(storedCart && storedTotal !== null){
-            setCart(JSON.parse(storedCart));
-            setTotal(JSON.parse(storedTotal));
-        }else{
-            setCart([]);
-            setTotal(0);
+    const removeFromCart = (index) => {        
+        if(index > -1 && total > 0) {
+            let newTotal = total - cart[index].price;
+            setTotal(newTotal);
+            localStorage.setItem('total', JSON.stringify(newTotal));
+            let newCart = [...cart];
+            newCart.splice(index,1);
+            setCart(newCart);
+            localStorage.setItem('cart', JSON.stringify(newCart));
+            console.log(newCart);
+            console.log(index);
         }
-        console.log(cart)
-    },[])
-
-    const removeFromCart = (id) => {
-        console.log(id);
     }
 
 
@@ -34,17 +31,16 @@ const Cart = () => {
                         Your cart is empty
                     </h1>) : (<div className='flex flex-col md:gap-4 gap-8 md:pr-7'>
                         {
-                            cart.map((product) => (
-                                <ListItem key={product.id} product={product} removeFromCart={setCart}/>
+                            cart.map((product,index) => (
+                                <ListItem key={product.id} product={product} removeFromCart={removeFromCart} index={index}/>
                             ))
                         }
                     </div>)
                 }
             </div>
             <div className='md:order-2 order-1 md:col-span-1 col-span-3  w-full'>
-                <CartBox cart={cart} total={total}/>
+                <CartBox cart={cart} total={total} setCart={setCart} setTotal={setTotal}/>
             </div>
-
         </div>
         
     </div>

@@ -10,6 +10,7 @@ const ProfileDrawer = ({closeHandler,user}) => {
 
     const logoutHandler = () => {
         localStorage.removeItem('token');
+        closeHandler();
         navigate('/');        
     }
 

@@ -4,7 +4,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import clsx from 'clsx';
 import Rating from '../common/Rating';
 
-const GridItem = ({product,addToCart}) => {
+const GridItem = ({product,addToCart,index}) => {
     const { id, title, thumbnail, price,category,rating } = product;
   return (
     
@@ -24,7 +24,7 @@ const GridItem = ({product,addToCart}) => {
               </div>
               <div className='flex justify-between items-center'>
                 <p className="text-gray-50 select-none">$ {price}</p>
-                <button className='bg-yellow-500 flex items-center px-4 py-1 rounded gap-3 hover:bg-yellow-400' onClick={() => {addToCart(id)}}> 
+                <button className='bg-yellow-500 flex items-center px-4 py-1 gap-3 hover:bg-yellow-400 hover:scale-105 transition duration-200 ease-linear' onClick={() => {addToCart(index)}}> 
                   <p>Add to Cart</p>
                   <FaCartShopping />
                 </button>
